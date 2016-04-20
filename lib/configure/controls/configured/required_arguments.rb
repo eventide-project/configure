@@ -1,18 +1,18 @@
 module Configure
   module Controls
     module Configured
-      module RequiredArguments
+      module PositionalArguments
         class Example
           extend Configure::Macro
 
           configure :some_dependency_name
 
-          attr_reader :required_arg
-          attr_reader :another_required_arg
+          attr_reader :positional_arg
+          attr_reader :optional_arg
 
-          def initialize(required_arg, another_required_arg)
-            @required_arg = required_arg
-            @another_required_arg = another_required_arg
+          def initialize(positional_arg, optional_arg=nil)
+            @positional_arg = positional_arg
+            @optional_arg = optional_arg
           end
         end
 
