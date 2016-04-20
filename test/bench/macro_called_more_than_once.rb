@@ -9,13 +9,13 @@ context "Invoking macro does not override the macro itself" do
 
   test "Subsequent invocations of macro are not affected by previous invocations" do
     control_class.class_exec do
-      configure :other_dependency
+      configure :other_attr_name
     end
 
-    receiver = Struct.new(:other_dependency).new
+    receiver = Struct.new(:other_attr_name).new
 
     control_class.configure receiver
 
-    assert receiver.other_dependency.is_a?(control_class)
+    assert receiver.other_attr_name.is_a?(control_class)
   end
 end
