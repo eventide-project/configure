@@ -56,4 +56,12 @@ context "Defining the configure method on a class" do
       end
     end
   end
+
+  test "Macro can be called more than once" do
+    control_class = Configure::Controls::Configured::Twice.example
+
+    control_class.configure receiver
+
+    assert receiver.some_other_dependency_name.is_a?(control_class)
+  end
 end
