@@ -7,10 +7,14 @@ module Configure
   module Macro
     def configure_macro(dependency_name)
       singleton_class.class_exec dependency_name do |default_attr_name|
-        define_method :configure do |receiver, *args, attr_name: nil|
+        define_method :configure do |receiver, *args, attr_name: nil, **keyword_args|
           attr_name ||= default_attr_name
 
-          instance = new *args
+          if keyword_args.empty?
+            instance = new *args
+          else
+            instance = new *args, **keyword_args
+          end
 
           receiver.public_send "#{attr_name}=", instance
           instance
