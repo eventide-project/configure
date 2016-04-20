@@ -4,6 +4,7 @@ module Configure
       extend Macro
     end
   end
+
   module Macro
     def configure_macro(dependency_name)
       singleton_class.class_exec dependency_name do |default_attr_name|

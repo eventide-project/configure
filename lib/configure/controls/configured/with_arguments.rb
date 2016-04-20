@@ -23,6 +23,22 @@ module Configure
         def self.example
           Example
         end
+
+        def self.required_positional_arg
+          'some value'
+        end
+
+        def self.optional_positional_arg
+          'some other value'
+        end
+
+        def self.required_keyword_arg
+          'another value'
+        end
+
+        def self.optional_keyword_arg
+          'yet another value'
+        end
       end
     end
   end
