@@ -6,6 +6,8 @@ module Configure
 
         configure :some_attr_name
 
+        singleton_class.send :alias_method, :build, :new
+
         attr_reader :arg
 
         def initialize(arg:)
@@ -16,6 +18,8 @@ module Configure
           extend Configure::Macro
 
           configure :some_attr_name
+
+          singleton_class.send :alias_method, :build, :new
 
           attr_reader :arg
 

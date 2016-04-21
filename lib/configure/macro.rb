@@ -32,7 +32,7 @@ module Configure
       attr_writer :default_factory_method
 
       def default_factory_method
-        @default_factory_method ||= :new
+        @default_factory_method ||= :build
       end
     end
   end

@@ -3,6 +3,7 @@ require_relative './bench_init'
 context "Defining the configure method on a subclass" do
   control_class = Class.new Configure::Controls::Classes::NoArguments do
     configure :other_attr_name
+    singleton_class.send :alias_method, :build, :new
   end
 
   receiver = OpenStruct.new

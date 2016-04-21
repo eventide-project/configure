@@ -5,6 +5,7 @@ context "Invoking macro does not override the macro itself" do
     extend Configure::Macro
 
     configure :some_attr_name
+    singleton_class.send :alias_method, :build, :new
   end
 
   test "Subsequent invocations of macro are not affected by previous invocations" do

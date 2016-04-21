@@ -4,9 +4,13 @@ context "Activating the configure macro" do
   receiver = OpenStruct.new
 
   test "Configure macro is defined on the class" do
-    cls = Class.new
-    Configure.activate cls
-    cls.configure :some_attr_name
+    cls = Class.new do
+      Configure.activate self
+
+      configure :some_attr_name
+
+      singleton_class.send :alias_method, :build, :new
+    end
 
     cls.configure receiver
 
