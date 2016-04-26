@@ -1,6 +1,6 @@
 module Configure
   def self.activate(target_class=nil, factory_method: nil)
-    target_class ||= Class
+    target_class ||= Object
 
     macro_module = Configure::Macro
 
