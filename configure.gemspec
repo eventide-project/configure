@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 Gem::Specification.new do |s|
   s.name = 'configure'
-  s.version = '0.0.0.0'
+  s.version = '0.1.0.0'
   s.summary = 'Generates class level configure methods'
   s.description = ' '
 
