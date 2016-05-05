@@ -5,9 +5,9 @@ Gem::Specification.new do |s|
   s.summary = 'Generates class level configure methods'
   s.description = ' '
 
-  s.authors = ['Obsidian Software, Inc']
-  s.email = 'opensource@obsidianexchange.com'
-  s.homepage = 'https://github.com/obsidian-btc/configure'
+  s.authors = ['The Eventide Project']
+  s.email = 'opensource@eventide-project.org'
+  s.homepage = 'https://github.com/eventide-project/settings'
   s.licenses = ['MIT']
 
   s.require_paths = ['lib']
