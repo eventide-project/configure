@@ -1,16 +1,16 @@
 module Configure
   module Controls
     module FactoryMethod
-      attr_accessor :build_called
+      attr_accessor :factory_method_called
 
-      def build
+      def make
         instance = new
-        self.build_called = true
+        self.factory_method_called = true
         instance
       end
 
-      def build_called?
-        build_called ? true : false
+      def factory_method_called?
+        factory_method_called ? true : false
       end
     end
   end
