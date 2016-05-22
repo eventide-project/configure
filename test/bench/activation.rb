@@ -19,6 +19,7 @@ context "Activating the configure macro" do
     test "factory_method parameter" do
       cls = Class.new do
         extend Configure::Controls::FactoryMethod
+        extend Configure::Controls::FactoryMethod::Proof
       end
 
       Configure.activate cls, factory_method: :make
@@ -32,6 +33,7 @@ context "Activating the configure macro" do
     test "constructor parameter" do
       cls = Class.new do
         extend Configure::Controls::FactoryMethod
+        extend Configure::Controls::FactoryMethod::Proof
       end
 
       Configure.activate cls, constructor: :make

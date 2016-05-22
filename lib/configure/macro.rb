@@ -4,7 +4,7 @@ module Configure
       cls.extend DefaultFactoryMethod
     end
 
-    def configure_macro(receiver_attribute, factory_method: nil, constructor: nil)
+    def configure_macro(receiver_attribute, factory_method: nil, constructor: nil, &build_action)
       unless constructor.nil?
         factory_method = constructor
       end
@@ -12,6 +12,19 @@ module Configure
       factory_method ||= default_factory_method
 
       singleton_class.class_exec receiver_attribute, factory_method do |receiver_attribute, factory_method|
+
+        unless build_action.nil?
+          define_method factory_method do |*args, **keyword_args|
+            if args.empty?
+              build_action.()
+            elsif keyword_args.empty?
+              build_action.(*args)
+            else
+              build_action.(*args, **keyword_args)
+            end
+          end
+        end
+
         define_method :configure do |receiver, *args, attr_name: nil, **keyword_args|
           if receiver.is_a?(Symbol) && attr_name.nil? && args.empty? && keyword_args.empty?
             return super receiver
