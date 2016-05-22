@@ -6,9 +6,7 @@ context "Activating the configure macro" do
   test "Configure macro is defined on the class" do
     cls = Class.new do
       Configure.activate self
-
       configure :some_attr_name
-
       singleton_class.send :alias_method, :build, :new
     end
 
@@ -22,11 +20,11 @@ context "Activating the configure macro" do
       extend Configure::Controls::FactoryMethod
     end
 
-    Configure.activate cls, factory_method: :build
+    Configure.activate cls, factory_method: :make
     cls.configure :some_attr_name
 
     cls.configure receiver
 
-    assert cls.build_called?
+    assert cls.factory_method_called?
   end
 end
