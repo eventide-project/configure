@@ -1,6 +1,10 @@
 module Configure
-  def self.activate(target_class=nil, factory_method: nil)
+  def self.activate(target_class=nil, factory_method: nil, constructor: nil)
     target_class ||= Object
+
+    unless constructor.nil?
+      factory_method = constructor
+    end
 
     macro_module = Configure::Macro
 

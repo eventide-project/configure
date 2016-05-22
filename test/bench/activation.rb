@@ -15,16 +15,31 @@ context "Activating the configure macro" do
     assert receiver.some_attr_name.is_a?(cls)
   end
 
-  test "Factory method can be supplied" do
-    cls = Class.new do
-      extend Configure::Controls::FactoryMethod
+  context "Specifying the factory method name" do
+    test "factory_method parameter" do
+      cls = Class.new do
+        extend Configure::Controls::FactoryMethod
+      end
+
+      Configure.activate cls, factory_method: :make
+      cls.configure :some_attr_name
+
+      cls.configure receiver
+
+      assert cls.factory_method_called?
     end
 
-    Configure.activate cls, factory_method: :make
-    cls.configure :some_attr_name
+    test "constructor parameter" do
+      cls = Class.new do
+        extend Configure::Controls::FactoryMethod
+      end
 
-    cls.configure receiver
+      Configure.activate cls, constructor: :make
+      cls.configure :some_attr_name
 
-    assert cls.factory_method_called?
+      cls.configure receiver
+
+      assert cls.factory_method_called?
+    end
   end
 end
