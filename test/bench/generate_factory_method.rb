@@ -1,12 +1,15 @@
 require_relative './bench_init'
 
-context "Configuring classes with factory method" do
-  context "factory_method parameter" do
+context "Generate the factory method if a block is supplied" do
+  context "Default factory method name" do
     control_class = Class.new do
       extend Configure::Macro
-      configure :some_attr_name, factory_method: :make
 
-      extend Configure::Controls::FactoryMethod
+      configure :some_attr_name do
+        self.factory_method_called = true
+        new
+      end
+
       extend Configure::Controls::FactoryMethod::Proof
     end
 
@@ -14,24 +17,26 @@ context "Configuring classes with factory method" do
 
     test "Factory method is used to instantiate the class" do
       control_class.configure receiver
-
       assert control_class.factory_method_called?
     end
   end
 
-  context "constructor parameter" do
+  context "Specialized factory method name" do
     control_class = Class.new do
       extend Configure::Macro
-      configure :some_attr_name, constructor: :make
-      extend Configure::Controls::FactoryMethod
+
+      configure :some_attr_name, factory_method: :make do
+        self.factory_method_called = true
+        new
+      end
+
       extend Configure::Controls::FactoryMethod::Proof
     end
 
     receiver = OpenStruct.new
 
-    test "Constructor is used to instantiate the class" do
+    test "Factory method is used to instantiate the class" do
       control_class.configure receiver
-
       assert control_class.factory_method_called?
     end
   end
