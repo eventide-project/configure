@@ -4,7 +4,11 @@ module Configure
       cls.extend DefaultFactoryMethod
     end
 
-    def configure_macro(receiver_attribute, factory_method: nil)
+    def configure_macro(receiver_attribute, factory_method: nil, constructor: nil)
+      unless constructor.nil?
+        factory_method = constructor
+      end
+
       factory_method ||= default_factory_method
 
       singleton_class.class_exec receiver_attribute, factory_method do |receiver_attribute, factory_method|
