@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 Gem::Specification.new do |s|
   s.name = 'evt-configure'
-  s.version = '0.1.2.0'
+  s.version = '0.1.2.1'
   s.summary = 'Generates class level configure methods'
   s.description = ' '
 
@@ -16,5 +16,5 @@ Gem::Specification.new do |s|
   s.required_ruby_version = '>= 2.3.3'
 
   s.add_development_dependency 'evt-telemetry-logger'
-  s.add_development_dependency 'ntl-test_bench'
+  s.add_development_dependency 'test_bench'
 end
