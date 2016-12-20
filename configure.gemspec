@@ -15,6 +15,6 @@ Gem::Specification.new do |s|
   s.platform = Gem::Platform::RUBY
   s.required_ruby_version = '>= 2.3.3'
 
-  s.add_development_dependency 'telemetry-logger'
-  s.add_development_dependency 'test_bench'
+  s.add_development_dependency 'evt-telemetry-logger'
+  s.add_development_dependency 'ntl-test_bench'
 end
