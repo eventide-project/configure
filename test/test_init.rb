@@ -13,7 +13,4 @@ puts RUBY_DESCRIPTION
 
 require_relative '../init.rb'
 
-require 'telemetry/logger'
 require 'configure/controls'
-
-Telemetry::Logger::AdHoc.activate
