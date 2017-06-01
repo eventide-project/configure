@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 Gem::Specification.new do |s|
   s.name = 'evt-configure'
-  s.version = '0.1.2.3'
+  s.version = '0.1.2.4'
   s.summary = 'Generates class level configure methods'
   s.description = ' '
 
