@@ -1,4 +1,4 @@
-require_relative './bench_init'
+require_relative './automated_init'
 
 context "Generate the factory method if a block is supplied" do
   context "Default factory method name" do

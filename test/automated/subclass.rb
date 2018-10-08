@@ -1,4 +1,4 @@
-require_relative './bench_init'
+require_relative './automated_init'
 
 context "Defining the configure method on a subclass" do
   control_class = Class.new Configure::Controls::Classes::NoArguments do
