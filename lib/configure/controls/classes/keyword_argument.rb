@@ -2,7 +2,7 @@ module Configure
   module Controls
     module Classes
       class KeywordArgument
-        extend Configure::Macro
+        Configure.activate(self)
 
         configure :some_attr_name
 
@@ -15,7 +15,7 @@ module Configure
         end
 
         class Optional
-          extend Configure::Macro
+          Configure.activate(self)
 
           configure :some_attr_name
 

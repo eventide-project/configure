@@ -2,7 +2,7 @@ module Configure
   module Controls
     module Classes
       class NoArguments
-        extend Configure::Macro
+        Configure.activate(self)
 
         configure :some_attr_name
 
