@@ -1,16 +1,15 @@
 require_relative './automated_init'
 
 context "Defining the configure method on a subclass" do
-  control_class = Class.new Configure::Controls::Classes::NoArguments do
+  control_class = Class.new(Configure::Controls::NoArguments::Example) do
     configure :other_attr_name
-    singleton_class.send :alias_method, :build, :new
   end
 
   receiver = OpenStruct.new
 
   test "Subclass macro overrides parent class macro" do
-    control_class.configure receiver
+    control_class.configure(receiver)
 
-    assert receiver.other_attr_name.is_a?(control_class)
+    assert(receiver.other_attr_name.is_a?(control_class))
   end
 end

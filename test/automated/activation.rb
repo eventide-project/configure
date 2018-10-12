@@ -1,6 +1,6 @@
 require_relative './automated_init'
 
-context "Activating the configure macro" do
+context "Activation" do
   receiver = OpenStruct.new
 
   test "Configure macro is defined on the class" do

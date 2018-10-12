@@ -1,25 +1,31 @@
 module Configure
   module Controls
-    module Classes
-      class PositionalArgument
-        Configure.activate(self)
+    module PositionalArgument
+      class Example
+        include Configure
 
         configure :some_attr_name
 
-        singleton_class.send :alias_method, :build, :new
+        def self.build(arg)
+          new(arg)
+        end
 
         attr_reader :arg
 
         def initialize(arg)
           @arg = arg
         end
+      end
 
-        class Optional
-          Configure.activate(self)
+      module Optional
+        class Example
+          include Configure
 
           configure :some_attr_name
 
-          singleton_class.send :alias_method, :build, :new
+          def self.build(arg=nil)
+            new(arg)
+          end
 
           attr_reader :arg
 

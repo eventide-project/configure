@@ -3,7 +3,8 @@ require_relative './automated_init'
 context "Configuring classes with factory method" do
   context "factory_method parameter" do
     control_class = Class.new do
-      extend Configure::Macro
+      include Configure
+
       configure :some_attr_name, factory_method: :make
 
       extend Configure::Controls::FactoryMethod
@@ -21,8 +22,10 @@ context "Configuring classes with factory method" do
 
   context "constructor parameter" do
     control_class = Class.new do
-      extend Configure::Macro
+      include Configure
+
       configure :some_attr_name, constructor: :make
+
       extend Configure::Controls::FactoryMethod
       extend Configure::Controls::FactoryMethod::Proof
     end

@@ -1,42 +1,42 @@
 require_relative './automated_init'
 
-context "Configuring a receiver" do
+context "Configuring Receiver" do
   control_value = 'some-value'
   receiver = OpenStruct.new
 
-  context "No arguments" do
-    control_class = Configure::Controls::Classes::NoArguments
+  context "No Arguments" do
+    control_class = Configure::Controls::NoArguments::Example
 
     test "Class is configured as a dependency on the receiver" do
-      control_class.configure receiver
+      control_class.configure(receiver)
 
-      assert receiver.some_attr_name.is_a?(control_class)
+      assert(receiver.some_attr_name.is_a?(control_class))
     end
   end
 
-  context "Positional argument" do
+  context "Positional Argument" do
     context do
-      control_class = Configure::Controls::Classes::PositionalArgument
+      control_class = Configure::Controls::PositionalArgument::Example
 
       test do
-        control_class.configure receiver, control_value
+        control_class.configure(receiver, control_value)
 
-        assert receiver.some_attr_name.arg == control_value
+        assert(receiver.some_attr_name.arg == control_value)
       end
 
       test "Raises error if not supplied" do
-        assert proc { control_class.configure receiver } do
-          raises_error? ArgumentError
+        assert proc { control_class.configure(receiver) } do
+          raises_error?(ArgumentError)
         end
       end
     end
 
     context "Optional" do
-      control_class = Configure::Controls::Classes::PositionalArgument::Optional
+      control_class = Configure::Controls::PositionalArgument::Optional::Example
 
-      test "Does not raise error if not supplied" do
-        refute proc { control_class.configure receiver } do
-          raises_error? ArgumentError
+      test "Does not raise error if omitted" do
+        refute proc { control_class.configure(receiver) } do
+          raises_error?(ArgumentError)
         end
       end
     end
@@ -44,27 +44,27 @@ context "Configuring a receiver" do
 
   context "Keyword arguments" do
     context do
-      control_class = Configure::Controls::Classes::KeywordArgument
+      control_class = Configure::Controls::KeywordArgument::Example
 
       test do
-        control_class.configure receiver, arg: control_value
+        control_class.configure(receiver, arg: control_value)
 
-        assert receiver.some_attr_name.arg == control_value
+        assert(receiver.some_attr_name.arg == control_value)
       end
 
-      test "Raises error if not supplied" do
-        assert proc { control_class.configure receiver } do
-          raises_error? ArgumentError
+      test "Raises error if omitted" do
+        assert proc { control_class.configure(receiver) } do
+          raises_error?(ArgumentError)
         end
       end
     end
 
     context "Optional" do
-      control_class = Configure::Controls::Classes::KeywordArgument::Optional
+      control_class = Configure::Controls::KeywordArgument::Optional::Example
 
       test "Does not raise error if not supplied" do
-        refute proc { control_class.configure receiver } do
-          raises_error? ArgumentError
+        refute proc { control_class.configure(receiver) } do
+          raises_error?(ArgumentError)
         end
       end
     end
