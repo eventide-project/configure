@@ -4,7 +4,7 @@ context "Activation" do
   receiver = OpenStruct.new
 
   context "Receiver is Configured" do
-    Configure::Controls::ExampleClass.configure(receiver)
+    Controls::ExampleClass.configure(receiver)
 
     test "Instantiated object is set on receiver" do
       refute(receiver.some_attr_name.nil?)

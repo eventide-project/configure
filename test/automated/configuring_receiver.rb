@@ -5,7 +5,7 @@ context "Configuring Receiver" do
   receiver = OpenStruct.new
 
   context "No Arguments" do
-    control_class = Configure::Controls::NoArguments::Example
+    control_class = Controls::NoArguments::Example
 
     test "Class is configured as a dependency on the receiver" do
       control_class.configure(receiver)
@@ -16,7 +16,7 @@ context "Configuring Receiver" do
 
   context "Positional Argument" do
     context do
-      control_class = Configure::Controls::PositionalArgument::Example
+      control_class = Controls::PositionalArgument::Example
 
       test do
         control_class.configure(receiver, control_value)
@@ -32,7 +32,7 @@ context "Configuring Receiver" do
     end
 
     context "Optional" do
-      control_class = Configure::Controls::PositionalArgument::Optional::Example
+      control_class = Controls::PositionalArgument::Optional::Example
 
       test "Does not raise error if omitted" do
         refute proc { control_class.configure(receiver) } do
@@ -44,7 +44,7 @@ context "Configuring Receiver" do
 
   context "Keyword arguments" do
     context do
-      control_class = Configure::Controls::KeywordArgument::Example
+      control_class = Controls::KeywordArgument::Example
 
       test do
         control_class.configure(receiver, arg: control_value)
@@ -60,7 +60,7 @@ context "Configuring Receiver" do
     end
 
     context "Optional" do
-      control_class = Configure::Controls::KeywordArgument::Optional::Example
+      control_class = Controls::KeywordArgument::Optional::Example
 
       test "Does not raise error if not supplied" do
         refute proc { control_class.configure(receiver) } do

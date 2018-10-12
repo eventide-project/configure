@@ -4,15 +4,15 @@ context "Activation" do
   context "Optional Constructor Parameter" do
     receiver = OpenStruct.new
 
-    constructor_method = Configure::Controls::FactoryMethod.name
+    constructor_method = Controls::FactoryMethod.name
 
     cls = Class.new do
       Configure.activate(self, constructor: constructor_method)
 
       configure :some_attr
 
-      extend Configure::Controls::FactoryMethod
-      extend Configure::Controls::FactoryMethod::Proof
+      extend Controls::FactoryMethod
+      extend Controls::FactoryMethod::Proof
     end
 
     context "Receiver is Configured" do

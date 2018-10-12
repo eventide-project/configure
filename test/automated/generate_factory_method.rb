@@ -10,7 +10,7 @@ context "Generate the factory method if a block is supplied" do
         new
       end
 
-      extend Configure::Controls::FactoryMethod::Proof
+      extend Controls::FactoryMethod::Proof
     end
 
     receiver = OpenStruct.new
@@ -29,7 +29,7 @@ context "Generate the factory method if a block is supplied" do
         new
       end
 
-      extend Configure::Controls::FactoryMethod::Proof
+      extend Controls::FactoryMethod::Proof
     end
 
     receiver = OpenStruct.new
@@ -56,7 +56,7 @@ context "Generate the factory method if a block is supplied" do
         new(arg1, arg2)
       end
 
-      extend Configure::Controls::FactoryMethod::Proof
+      extend Controls::FactoryMethod::Proof
     end
 
     receiver = OpenStruct.new

@@ -1,7 +1,7 @@
 require_relative './automated_init'
 
 context "Defining the configure method on a subclass" do
-  control_class = Class.new(Configure::Controls::NoArguments::Example) do
+  control_class = Class.new(Controls::NoArguments::Example) do
     configure :other_attr_name
   end
 

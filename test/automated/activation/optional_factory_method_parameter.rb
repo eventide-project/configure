@@ -4,15 +4,15 @@ context "Activation" do
   context "Optional Factory Method Parameter" do
     receiver = OpenStruct.new
 
-    factory_method = Configure::Controls::FactoryMethod.name
+    factory_method = Controls::FactoryMethod.name
 
     cls = Class.new do
       Configure.activate(self, factory_method: factory_method)
 
       configure :some_attr
 
-      extend Configure::Controls::FactoryMethod
-      extend Configure::Controls::FactoryMethod::Proof
+      extend Controls::FactoryMethod
+      extend Controls::FactoryMethod::Proof
     end
 
     context "Receiver is Configured" do

@@ -7,8 +7,8 @@ context "Configuring classes with factory method" do
 
       configure :some_attr_name, factory_method: :make
 
-      extend Configure::Controls::FactoryMethod
-      extend Configure::Controls::FactoryMethod::Proof
+      extend Controls::FactoryMethod
+      extend Controls::FactoryMethod::Proof
     end
 
     receiver = OpenStruct.new
@@ -26,8 +26,8 @@ context "Configuring classes with factory method" do
 
       configure :some_attr_name, constructor: :make
 
-      extend Configure::Controls::FactoryMethod
-      extend Configure::Controls::FactoryMethod::Proof
+      extend Controls::FactoryMethod
+      extend Controls::FactoryMethod::Proof
     end
 
     receiver = OpenStruct.new
