@@ -8,7 +8,7 @@ module Configure
 
     macro_module = Configure::Macro
 
-    return if target_class.is_a? macro_module
+    return if target_class.is_a?(macro_module)
 
     target_class.extend(macro_module)
 
