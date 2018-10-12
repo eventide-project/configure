@@ -1,6 +1,6 @@
 module Configure
   module Controls
-    class ExampleClass
+    class Example
       include Configure
 
       configure :some_attr_name

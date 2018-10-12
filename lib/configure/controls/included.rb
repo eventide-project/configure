@@ -1,7 +1,7 @@
 module Configure
   module Controls
     module Included
-      Example = ExampleClass
+      Example = Example
     end
   end
 end

@@ -1,6 +1,6 @@
 require 'configure/controls/factory_method'
 
-require 'configure/controls/example_class'
+require 'configure/controls/example'
 
 require 'configure/controls/extended'
 require 'configure/controls/included'
