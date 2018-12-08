@@ -12,13 +12,11 @@ require 'configure'; Configure.activate
 
 #### Specifying a default factory method
 
-The configure library will use `.new` as the factory method by default. To override, supply `factory_method` to `Configure.activate`:
+The configure library will use `.build` as the factory method by default. To override, supply `factory_method` to `Configure.activate`:
 
 ```ruby
-require 'configure'; Configure.activate factory_method: :build
+require 'configure'; Configure.activate factory_method: :create
 ```
-
-**TODO** Should `.build` be the default?
 
 ### Usage
 
