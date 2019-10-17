@@ -25,7 +25,7 @@ context "Configuring Receiver" do
       end
 
       test "Raises error if not supplied" do
-        assert_raises ArgumentError do
+        assert_raises(ArgumentError) do
           control_class.configure(receiver)
         end
       end
@@ -35,7 +35,7 @@ context "Configuring Receiver" do
       control_class = Controls::PositionalArgument::Optional::Example
 
       test "Does not raise error if omitted" do
-        refute_raises ArgumentError do
+        refute_raises(ArgumentError) do
           control_class.configure(receiver)
         end
       end
@@ -53,7 +53,7 @@ context "Configuring Receiver" do
       end
 
       test "Raises error if omitted" do
-        assert_raises ArgumentError do
+        assert_raises(ArgumentError) do
           control_class.configure(receiver)
         end
       end
@@ -63,7 +63,7 @@ context "Configuring Receiver" do
       control_class = Controls::KeywordArgument::Optional::Example
 
       test "Does not raise error if not supplied" do
-        refute_raises ArgumentError do
+        refute_raises(ArgumentError) do
           control_class.configure(receiver)
         end
       end
