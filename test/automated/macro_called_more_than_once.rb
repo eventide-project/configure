@@ -8,15 +8,19 @@ context "Invoking macro does not override the macro itself" do
     singleton_class.send :alias_method, :build, :new
   end
 
-  test "Subsequent invocations of macro are not affected by previous invocations" do
-    control_class.class_exec do
-      configure :other_attr_name
+  if RUBY_ENGINE == 'mruby'
+    _test "The configure macro cannot be invoked a second time under MRuby"
+  else
+    test "Subsequent invocations of macro are not affected by previous invocations" do
+      control_class.class_exec do
+        configure :other_attr_name
+      end
+
+      receiver = Struct.new(:other_attr_name).new
+
+      control_class.configure receiver
+
+      assert receiver.other_attr_name.is_a?(control_class)
     end
-
-    receiver = Struct.new(:other_attr_name).new
-
-    control_class.configure receiver
-
-    assert receiver.other_attr_name.is_a?(control_class)
   end
 end
