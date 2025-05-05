@@ -1,5 +1,5 @@
-require 'ostruct'
+require "ostruct"
 
-require 'configure/macro'
-require 'configure/activate'
-require 'configure/configure'
+require "configure/macro"
+require "configure/activate"
+require "configure/configure"

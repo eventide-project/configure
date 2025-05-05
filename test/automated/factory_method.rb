@@ -1,4 +1,4 @@
-require_relative './automated_init'
+require_relative "./automated_init"
 
 context "Configuring classes with factory method" do
   context "factory_method parameter" do

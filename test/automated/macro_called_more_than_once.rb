@@ -1,4 +1,4 @@
-require_relative './automated_init'
+require_relative "./automated_init"
 
 context "Invoking macro does not override the macro itself" do
   control_class = Class.new do

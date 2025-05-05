@@ -1,4 +1,4 @@
-require_relative '../automated_init'
+require_relative "../automated_init"
 
 context "Activation" do
   context "Optional Factory Method Parameter" do

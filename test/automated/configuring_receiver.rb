@@ -1,7 +1,7 @@
-require_relative './automated_init'
+require_relative "./automated_init"
 
 context "Configuring Receiver" do
-  control_value = 'some-value'
+  control_value = "some-value"
   receiver = OpenStruct.new
 
   context "No Arguments" do
