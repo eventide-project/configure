@@ -1,4 +1,4 @@
-require_relative './automated_init'
+require_relative "./automated_init"
 
 context "Generate the factory method if a block is supplied" do
   context "Default factory method name" do
@@ -61,7 +61,7 @@ context "Generate the factory method if a block is supplied" do
 
     receiver = OpenStruct.new
 
-    instance = control_class.configure receiver, 'value 1', 'value 2'
+    instance = control_class.configure receiver, "value 1", "value 2"
 
     test "Factory method is used to construct the class" do
       assert control_class.factory_method_called?
@@ -69,11 +69,11 @@ context "Generate the factory method if a block is supplied" do
 
     context "Args are used to instantiate the class" do
       test "arg1" do
-        assert(instance.arg1 == 'value 1')
+        assert(instance.arg1 == "value 1")
       end
 
       test "arg2" do
-        assert(instance.arg2 == 'value 2')
+        assert(instance.arg2 == "value 2")
       end
     end
   end
